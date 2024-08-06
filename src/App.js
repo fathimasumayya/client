@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Fragment } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Employee from "./Components/Employee";
+import Signup from "./Components/Signup";
+import { Tables } from "./pages/Table";
+import { Hero404 } from "./pages/Hero404";
+import { Profile } from "./pages/Profile";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Signup />} />
+          <Route path="/tables" element={<Tables />} />
+          <Route path="/hero404" element={<Hero404 />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/employee" element={<Employee />} />
+        </Routes>
+      </BrowserRouter>
+    </Fragment>
   );
 }
 
